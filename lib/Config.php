@@ -15,6 +15,7 @@ class Config {
     public const CONTAINER_TYPE_PDF = 'pdf';
     public const ENABLE_OTP_BY_DEFAULT = true;
     public const ENABLE_LOCAL_SIGNING_BY_DEFAULT = false;
+    public const DEFAULT_API_LANGUAGE = 'en';
 
     /** @var IConfig */
     private $config;
@@ -85,7 +86,7 @@ class Config {
     public function getApiLanguage(): ?string
     {
         if (!isset($this->apiLanguage)) {
-            $this->apiLanguage = $this->config->getAppValue('electronicsignatures', 'api_language', null);
+            $this->apiLanguage = $this->config->getAppValue('electronicsignatures', 'api_language', self::DEFAULT_API_LANGUAGE);
         }
 
         return $this->apiLanguage;
